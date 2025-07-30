@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
-import { Card, CardContent } from './ui/card';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -8,6 +8,71 @@ const Contact = () => {
     company: '',
     message: ''
   });
+
+  // SEO optimization - set document title and meta description
+  useEffect(() => {
+    // Set page title
+    document.title = "Contact Amazon Returns Service Experts | RTV Solutions";
+    
+    // Set meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Get in touch with Amazon Returns Experts at RTV Solutions. Contact our team for professional Amazon returns management, RTV services, and brand protection solutions.');
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = 'description';
+      meta.content = 'Get in touch with Amazon Returns Experts at RTV Solutions. Contact our team for professional Amazon returns management, RTV services, and brand protection solutions.';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+    }
+
+    // Set meta keywords
+    const metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (metaKeywords) {
+      metaKeywords.setAttribute('content', 'contact amazon returns service, amazon returns experts, RTV solutions contact, amazon returns management, contact returns specialists');
+    } else {
+      const keywords = document.createElement('meta');
+      keywords.name = 'keywords';
+      keywords.content = 'contact amazon returns service, amazon returns experts, RTV solutions contact, amazon returns management, contact returns specialists';
+      document.getElementsByTagName('head')[0].appendChild(keywords);
+    }
+
+    // Add structured data for local business
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "RTV Solutions",
+      "description": "Amazon Returns Service Experts providing professional returns management and brand protection solutions",
+      "url": "https://rtvsolutions.com/contact",
+      "telephone": "+1-555-123-4567",
+      "email": "hello@rtvsolutions.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "serviceArea": "United States",
+      "priceRange": "$",
+      "openingHours": "Mo-Fr 09:00-18:00"
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(structuredData);
+    document.getElementsByTagName('head')[0].appendChild(script);
+
+    // Cleanup function
+    return () => {
+      // Remove added elements when component unmounts
+      const addedMeta = document.querySelector('meta[name="description"][content*="RTV Solutions"]');
+      const addedKeywords = document.querySelector('meta[name="keywords"][content*="contact amazon returns service"]');
+      const addedScript = document.querySelector('script[type="application/ld+json"]');
+      
+      if (addedMeta && addedMeta.content.includes('RTV Solutions')) addedMeta.remove();
+      if (addedKeywords && addedKeywords.content.includes('contact amazon returns service')) addedKeywords.remove();
+      if (addedScript) addedScript.remove();
+    };
+  }, []);
 
   const handleSubmit = () => {
     // Validate required fields
@@ -48,341 +113,160 @@ const Contact = () => {
     }
   ];
 
-  // Inline styles
-  const styles = {
-    section: {
-      padding: '5rem 0',
-      background: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.02) 100%)',
-      minHeight: '100vh'
-    },
-    container: {
-      maxWidth: '1200px',
-      margin: '0 auto',
-      padding: '0 1rem'
-    },
-    header: {
-      textAlign: 'center',
-      marginBottom: '4rem'
-    },
-    title: {
-      fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-      fontWeight: 'bold',
-      marginBottom: '1.5rem',
-      color: '#1a1a1a'
-    },
-    gradientText: {
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      WebkitBackgroundClip: 'text',
-      WebkitTextFillColor: 'transparent',
-      backgroundClip: 'text'
-    },
-    subtitle: {
-      fontSize: '1.25rem',
-      color: '#666',
-      maxWidth: '48rem',
-      margin: '0 auto',
-      lineHeight: '1.6'
-    },
-    grid: {
-      display: 'grid',
-      gridTemplateColumns: '1fr',
-      gap: '3rem'
-    },
-    gridLg: {
-      '@media (min-width: 1024px)': {
-        gridTemplateColumns: '1fr 1fr'
-      }
-    },
-    contactInfoContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '2rem'
-    },
-    contactCard: {
-      transition: 'all 0.3s ease',
-      cursor: 'pointer'
-    },
-    contactCardContent: {
-      padding: '1.5rem',
-      display: 'flex',
-      alignItems: 'flex-start',
-      gap: '1rem'
-    },
-    iconContainer: {
-      padding: '0.75rem',
-      backgroundColor: 'rgba(102, 126, 234, 0.2)',
-      borderRadius: '0.5rem',
-      transition: 'background-color 0.3s ease'
-    },
-    icon: {
-      width: '1.5rem',
-      height: '1.5rem',
-      color: '#667eea'
-    },
-    contactTitle: {
-      fontWeight: '600',
-      fontSize: '1.125rem',
-      marginBottom: '0.25rem',
-      color: '#1a1a1a',
-      transition: 'color 0.3s ease'
-    },
-    contactDetails: {
-      color: '#1a1a1a',
-      fontWeight: '500',
-      marginBottom: '0.25rem'
-    },
-    contactSubtitle: {
-      fontSize: '0.875rem',
-      color: '#666'
-    },
-    formCard: {
-      animation: 'fadeInUp 0.6s ease-out 0.3s both'
-    },
-    form: {
-      padding: '2rem',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '1.5rem'
-    },
-    formGrid: {
-      display: 'grid',
-      gridTemplateColumns: '1fr',
-      gap: '1.5rem'
-    },
-    formGridMd: {
-      '@media (min-width: 768px)': {
-        gridTemplateColumns: '1fr 1fr'
-      }
-    },
-    label: {
-      display: 'block',
-      fontSize: '0.875rem',
-      fontWeight: '500',
-      marginBottom: '0.5rem',
-      color: '#1a1a1a'
-    },
-    input: {
-      width: '100%',
-      padding: '0.75rem 1rem',
-      border: '1px solid #d1d5db',
-      borderRadius: '0.375rem',
-      backgroundColor: 'rgba(255,255,255,0.5)',
-      transition: 'border-color 0.2s ease',
-      fontSize: '1rem',
-      outline: 'none'
-    },
-    inputFocus: {
-      borderColor: '#667eea',
-      boxShadow: '0 0 0 3px rgba(102, 126, 234, 0.1)'
-    },
-    textarea: {
-      width: '100%',
-      padding: '0.75rem 1rem',
-      border: '1px solid #d1d5db',
-      borderRadius: '0.375rem',
-      backgroundColor: 'rgba(255,255,255,0.5)',
-      transition: 'border-color 0.2s ease',
-      fontSize: '1rem',
-      outline: 'none',
-      resize: 'none',
-      fontFamily: 'inherit'
-    },
-    button: {
-      width: '100%',
-      padding: '0.875rem 1.5rem',
-      backgroundColor: '#667eea',
-      color: 'white',
-      border: 'none',
-      borderRadius: '0.375rem',
-      fontSize: '1rem',
-      fontWeight: '500',
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '0.5rem',
-      animation: 'glow 2s ease-in-out infinite alternate'
-    },
-    buttonHover: {
-      backgroundColor: '#5a67d8',
-      transform: 'translateY(-1px)',
-      boxShadow: '0 4px 12px rgba(102, 126, 234, 0.4)'
-    }
-  };
-
-  // CSS animations
-  const cssAnimations = `
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes glow {
-      from {
-        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
-      }
-      to {
-        box-shadow: 0 0 30px rgba(102, 126, 234, 0.8);
-      }
-    }
-    
-    .contact-card:hover .icon-container {
-      background-color: rgba(102, 126, 234, 0.3) !important;
-    }
-    
-    .contact-card:hover .contact-title {
-      color: #667eea !important;
-    }
-    
-    .form-input:focus {
-      border-color: #667eea !important;
-      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
-    }
-    
-    .submit-button:hover {
-      background-color: #5a67d8 !important;
-      transform: translateY(-1px) !important;
-      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
-    }
-    
-    @media (min-width: 768px) {
-      .form-grid-md {
-        grid-template-columns: 1fr 1fr !important;
-      }
-    }
-    
-    @media (min-width: 1024px) {
-      .grid-lg {
-        grid-template-columns: 1fr 1fr !important;
-      }
-    }
-  `;
-
   return (
-    <>
-      <style>{cssAnimations}</style>
-      <section style={styles.section}>
-        <div style={styles.container}>
-          <div style={styles.header}>
-            <h2 style={styles.title}>
-              Get In <span style={styles.gradientText}>Touch</span>
-            </h2>
-            <p style={styles.subtitle}>
+    <main role="main">
+      {/* SEO-optimized header with structured headings */}
+      <header className="sr-only">
+        <h1>Contact Amazon Returns Service | Get In Touch with Amazon Returns Experts</h1>
+      </header>
+      
+      <section id='contact' className="py-20 bg-gradient-to-b from-gray-50 to-gray-25 min-h-screen" itemScope itemType="https://schema.org/ContactPage">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+              Get In <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">Touch</span>
+            </h1>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Get in touch with the Amazon Returns Experts at RTV Solutions. Whether you need help managing returns or have questions about our services, we're here to assist you. Contact us today and start protecting your brand!
             </p>
           </div>
 
-          <div style={styles.grid} className="grid-lg">
-            {/* Contact Information */}
-            <div style={styles.contactInfoContainer}>
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="contact-card" style={styles.contactCard}>
-                  <CardContent style={styles.contactCardContent}>
-                    <div className="icon-container" style={styles.iconContainer}>
-                      <info.icon style={styles.icon} />
-                    </div>
-                    <div>
-                      <h3 className="contact-title" style={styles.contactTitle}>
-                        {info.title}
-                      </h3>
-                      <p style={styles.contactDetails}>
-                        {info.details}
-                      </p>
-                      <p style={styles.contactSubtitle}>
-                        {info.subtitle}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            {/* Contact Form */}
-            <Card style={styles.formCard}>
-              <CardContent>
-                <div style={styles.form}>
-                  <div style={styles.formGrid} className="form-grid-md">
-                    <div>
-                      <div style={styles.label}>
-                        Full Name *
-                      </div>
-                      <input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        style={styles.input}
-                        className="form-input"
-                      />
-                    </div>
-                    <div>
-                      <div style={styles.label}>
-                        Email Address *
-                      </div>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        style={styles.input}
-                        className="form-input"
-                      />
-                    </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Information */}
+          <aside className="flex flex-col gap-8" itemScope itemType="https://schema.org/Organization">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact Information</h2>
+            {contactInfo.map((info, index) => (
+              <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 cursor-pointer group" itemScope itemType="https://schema.org/ContactPoint">
+                <div className="p-6 flex items-start gap-4">
+                  <div className="p-3 bg-indigo-100 rounded-lg group-hover:bg-indigo-200 transition-colors duration-300">
+                    <info.icon className="w-6 h-6 text-indigo-600" />
                   </div>
-                  
                   <div>
-                    <div style={styles.label}>
-                      Company Name
-                    </div>
-                    <input
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      style={styles.input}
-                      className="form-input"
-                    />
-                  </div>
-
-                  <div>
-                    <div style={styles.label}>
-                      Message *
-                    </div>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={5}
-                      style={styles.textarea}
-                      className="form-input"
-                      placeholder="Tell us about your business and how we can help..."
-                    />
-                  </div>
-
-                  <div 
-                    onClick={handleSubmit}
-                    style={styles.button}
-                    className="submit-button"
-                  >
-                    Send Message
-                    <ArrowRight style={{ width: '1rem', height: '1rem' }} />
+                    <h3 className="font-semibold text-lg mb-1 text-gray-900 group-hover:text-indigo-600 transition-colors duration-300">
+                      {info.title}
+                    </h3>
+                    <p className="text-gray-900 font-medium mb-1" itemProp={info.icon === Mail ? "email" : info.icon === Phone ? "telephone" : "address"}>
+                      {info.details}
+                    </p>
+                    <p className="text-sm text-gray-600">
+                      {info.subtitle}
+                    </p>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
+            ))}
+          </aside>
+
+          {/* Contact Form */}
+          <section className="bg-white rounded-lg shadow-sm border border-gray-100" itemScope itemType="https://schema.org/ContactPage">
+            <div className="p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-900">
+                      Full Name *
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md bg-white bg-opacity-50 transition-colors duration-200 text-base outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                      required
+                      aria-describedby="name-help"
+                    />
+                    <span id="name-help" className="sr-only">Enter your full name for contact</span>
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-900">
+                      Email Address *
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md bg-white bg-opacity-50 transition-colors duration-200 text-base outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                      required
+                      aria-describedby="email-help"
+                    />
+                    <span id="email-help" className="sr-only">Provide your email address</span>
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium mb-2 text-gray-900">
+                    Company Name
+                  </label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md bg-white bg-opacity-50 transition-colors duration-200 text-base outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                    aria-describedby="company-help"
+                  />
+                  <span id="company-help" className="sr-only">Optional: Your company name</span>
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-900">
+                    Message *
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={5}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-md bg-white bg-opacity-50 transition-colors duration-200 text-base outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
+                    placeholder="Tell us about your business and how we can help..."
+                    required
+                    aria-describedby="message-help"
+                  />
+                  <span id="message-help" className="sr-only">Describe how we can help you</span>
+                </div>
+
+                <button 
+                  type="submit"
+                  onClick={handleSubmit}
+                  className="w-full px-6 py-4 bg-indigo-600 text-white border-none rounded-md text-base font-medium cursor-pointer transition-all duration-300 flex items-center justify-center gap-2 hover:bg-indigo-700 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-400/40 active:translate-y-0"
+                  aria-describedby="submit-help"
+                >
+                  Send Message
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <span id="submit-help" className="sr-only">Submit your message to contact us</span>
+              </form>
+            </div>
+          </section>
         </div>
-      </section>
-    </>
+        
+        {/* SEO Content Section */}
+        <section className="mt-16 bg-white rounded-lg shadow-sm border border-gray-100 p-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Why Choose RTV Solutions?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-gray-600">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Amazon Returns Expertise</h3>
+              <p>Our team specializes in Amazon returns management, helping brands reduce losses and optimize their return processes with proven strategies.</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Fast Response Time</h3>
+              <p>We respond to all inquiries within 2 hours, ensuring you get the support you need when managing your Amazon returns.</p>
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Brand Protection Focus</h3>
+              <p>Protect your brand reputation with our comprehensive Amazon returns solutions and dedicated customer service approach.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+    </main>
   );
 };
 

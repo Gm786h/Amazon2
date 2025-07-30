@@ -36,11 +36,11 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button className="bg-yellow-600 hover:bg-yellow-500 text-black px-8 py-4 text-lg font-medium rounded-md transition-all duration-300 shadow-lg hover:shadow-xl">
-              Get Started with Professional Amazon Returns Management – Protect Your Brand Today!
+              Get Started with Professional Amazon Returns Management
             </button>
              
             <button className="border-2 border-gray-700 text-gray-700 hover:bg-gray-700 hover:text-white px-8 py-4 text-lg font-medium rounded-md transition-all duration-300">
-              Learn About Our Seller Returns Processing
+           Protect Your Brand Today
             </button>
           </div>
 

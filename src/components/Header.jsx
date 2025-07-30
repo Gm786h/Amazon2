@@ -13,7 +13,7 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="flex items-center space-x-8">
-            <a href="#hero" className="text-gray-300 hover:text-yellow-600 transition-colors duration-300 font-medium">
+            <a href="#services" className="text-gray-300 hover:text-yellow-600 transition-colors duration-300 font-medium">
               Services
             </a>
             <a href="#how-it-works" className="text-gray-300 hover:text-yellow-600 transition-colors duration-300 font-medium">
