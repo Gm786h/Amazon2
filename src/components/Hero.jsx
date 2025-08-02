@@ -1,26 +1,26 @@
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-50">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-gray-50 to-yellow-50"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/10"></div>
        
       {/* Floating particles */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-yellow-600 rounded-full animate-bounce"></div>
-        <div className="absolute top-40 right-20 w-3 h-3 bg-gray-700 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute bottom-40 left-20 w-1 h-1 bg-yellow-600 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute bottom-20 right-10 w-2 h-2 bg-gray-700 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }}></div>
+        <div className="absolute top-20 left-10 w-2 h-2 bg-primary rounded-full animate-float"></div>
+        <div className="absolute top-40 right-20 w-3 h-3 bg-secondary rounded-full animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-40 left-20 w-1 h-1 bg-primary rounded-full animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 right-10 w-2 h-2 bg-secondary rounded-full animate-float" style={{ animationDelay: '0.5s' }}></div>
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-900">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white mt-20">
             Streamline Your{' '}
             <span className="bg-gradient-to-r from-yellow-600 to-orange-500 bg-clip-text text-transparent">Amazon Returns</span>{' '}
             & Reduce Fees  Protect Your Brand, Maximize Value
           </h1>
            
-          <p className="text-xl md:text-2xl text-gray-600 mb-4 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-white mb-4 max-w-3xl mx-auto">
             At RTV Solutions, we understand how crucial it is to control your brand's returns. 
             Our dedicated facilities and expert team ensure that your <strong>Amazon Returns Management </strong> 
              is handled efficiently, preventing market disruption and reducing your <strong>Amazon Fees</strong>. 

@@ -60,7 +60,7 @@ const Testimonials = () => {
   return (
     <section
       id="testimonials"
-      className="py-20 bg-gradient-to-b from-slate-50 to-white"
+      className="py-20 bg-gradient-to-b from-background to-mutued/20"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* SEO-optimized content for Amazon returns case studies */}
@@ -76,7 +76,7 @@ const Testimonials = () => {
             <strong>Amazon return fees</strong> through our proven system.
           </p>
 
-          <p className="text-lg text-slate-500 max-w-2xl mx-auto">
+          <p className="text-lg text-y max-w-2xl mx-auto">
             Read our case studies to learn how <strong> RTV Solutions</strong> has helped sellers
             like you manage their returns efficiently, reduce fees, and maintain
             brand integrity.
@@ -87,33 +87,33 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={index}
-              className="bg-white/70 backdrop-blur-sm border border-slate-200 hover:border-blue-300 transition-all duration-300 group shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="glass-effect hover:border-primary/50 transition-all duration-300 group-animation-fadeInUP"
               style={{
                 animationDelay: `${index * 0.2}s`,
                 animation: "fadeInUp 0.6s ease-out forwards",
               }}
             >
-              <CardContent className="p-6 relative">
-                <Quote className="absolute top-4 right-4 h-8 w-8 text-blue-200" />
-                <h3 className="text-lg font-bold text-slate-800 mb-3 leading-tight">
+              <CardContent className="p-6 relative ">
+                <Quote className="absolute top-4 right-4 h-8 w-8  text-yellow-600" />
+                <h3 className="text-lg font-bold text-white mb-3 leading-tight">
                   {testimonial.title}
                 </h3>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {testimonial.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-2 py-1 bg-blue-100 text-blue-700 text-xs rounded-full font-medium"
+                      className="px-2 py-1 bg-slate/50 text-yellow-600 text-xs rounded-full font-medium"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex items-center mb-4">
+                <div className="flex items-center mb-4 text-yellow-600">
                   {[...Array(testimonial.rating)].map((_ , i) => (
                     <Star
                       key={i}
-                      className="h-5 w-5 text-yellow-400 fill-current"
+                      className="h-5 w-5 gradient-text fill-current"
                     />
                   ))}
                 </div>
@@ -123,8 +123,8 @@ const Testimonials = () => {
                 </p>
 
                 {/* Key metrics for SEO value */}
-                <div className="bg-slate-50 rounded-lg p-3 mb-4">
-                  <h4 className="text-sm font-semibold text-slate-700 mb-2">
+                <div className="bg-gray-400 rounded-lg p-3 mb-4">
+                  <h4 className="text-sm font-semibold gradient-text">
                     Key Results:
                   </h4>
                   <div className="grid grid-cols-1 gap-1">
@@ -137,7 +137,7 @@ const Testimonials = () => {
                           <span className="text-slate-600 capitalize">
                             {key.replace(/([A-Z])/g, " $1").trim()}:
                           </span>
-                          <span className="font-semibold text-slate-800">
+                          <span className=" font-semibold text-yellow-800">
                             {value}
                           </span>
                         </div>
@@ -156,7 +156,7 @@ const Testimonials = () => {
                     </div>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    <div className="text-sm font-semibold bg-gradient text-yellow-600 bg-clip-text text-transparent">
                       {testimonial.savings}
                     </div>
                   </div>
@@ -179,21 +179,21 @@ const Testimonials = () => {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div className="p-4">
-                <div className="text-3xl font-bold text-blue-600 mb-2">90%</div>
+                <div className="text-3xl font-bold gradient-text mb-2">90%</div>
                 <div className="text-sm text-slate-600">
                   Average reduction in returns processing time
                 </div>
               </div>
-              <div className="p-4">
+              <div className="p-4 gradient-text">
                 <div className="text-3xl font-bold text-purple-600 mb-2">
                   $50K+
                 </div>
-                <div className="text-sm text-slate-600">
+                <div className="text-sm text-yellow-600">
                   Average annual savings for our clients
                 </div>
               </div>
               <div className="p-4">
-                <div className="text-3xl font-bold text-green-600 mb-2">
+                <div className="text-3xl font-bold gradient-text mb-2">
                   95%
                 </div>
                 <div className="text-sm text-slate-600">

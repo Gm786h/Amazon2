@@ -8,6 +8,7 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
+import TruckAnimation from './TruckAnimation';
 
 import { Card, CardContent } from "./ui/card";
 
@@ -78,60 +79,74 @@ const Services = () => {
   ];
 
   return (
-    <div id="services" className="min-h-screen bg-gradient-to-b from-background to-muted/20" >
-      <section className="py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our <span className="text-yellow-800 font-bold">Services</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-             <strong> RTV Solutions </strong> offers a full-spectrum{" "}
-              <strong>Amazon Returns Handling</strong> service designed to
-              streamline your reverse logistics process. Our team specializes in{" "}
-              <strong>processing and refurbishing</strong> returned products to
-              restore them to sellable condition, helping you recover value and
-              reduce losses. We also provide expert strategies for{" "}
-              <strong>reducing Amazon storage and disposal fees</strong> through
-              efficient inventory management and liquidation solutions. Let RTV
-              Solutions help you minimize operational costs and maximize ROI
-              through smart, scalable returns management.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className="bg-black backdrop-blur-sm border border-white/10 hover:border-primary/50 transition-all duration-300 group text-white"
-              >
-                <CardContent className="p-6">
-                  <div className="mb-4">
-                    <service.icon className="h-12 w-12 text-yellow-600 group-hover:text-yellow-700 transition-colors duration-300" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    {service.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.keywords.map((keyword, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs bg-primary/5 text-primary px-2 py-1 rounded"
-                      >
-                        {keyword}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+    <section id="services" className="py-20 bg-gradient-to-b from-background to-muted/10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Our <span className="gradient-text">Services</span>
+          </h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <strong className="text-primary"> RTV Solutions </strong> offers a full-spectrum{" "}
+            <strong className="text-primary">Amazon Returns Handling</strong> service designed to
+            streamline your reverse logistics process. Our team specializes in{" "}
+            <strong className="text-primary">processing and refurbishing</strong> returned products to
+            restore them to sellable condition, helping you recover value and
+            reduce losses. We also provide expert strategies for{" "}
+            <strong className="text-primary">reducing Amazon storage and disposal fees</strong> through
+            efficient inventory management and liquidation solutions. Let RTV
+            Solutions help you minimize operational costs and maximize ROI
+            through smart, scalable returns management.
+          </p>
         </div>
-      </section>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <Card
+              key={index}
+              className="glass-effect hover:border-primary/50 transition-all duration-300 group animate-fadeInUp"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <CardContent className="p-6">
+                <div className="mb-4">
+                  <service.icon className="h-12 w-12 text-primary group-hover:text-secondary transition-colors duration-300 " />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground group-hover:text-primary transition-colors duration-300">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {service.keywords.map((keyword, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs bg-muted text-muted-foreground hover:bg-primary/20 hover:text-primary px-3 py-1 rounded-full border border-border transition-all duration-200"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+          ))}
+        </div>
+        <div className="mt-10 bg-gradient-to-b from-background to-muted/10" >
+  <Card className="bg-gradient-to-b from-background to-muted/10 border-none shadow-none max-w-5xl mx-auto p-8 flex flex-col items-center animate-fadeInUp">
+    <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-6 text-center">
+      Seamless Returns Logistics in Motion
+    </h3>
+    <div className="w-full max-w-3xl">
+      <TruckAnimation />
     </div>
+    <p className="text-muted-foreground text-center mt-2 max-w-xl">
+      Our advanced truck logistics system ensures your Amazon returns are processed and moved with unmatched efficiency. See it in action.
+    </p>
+  </Card>
+</div>
+
+      </div>
+    </section>
   );
 };
 

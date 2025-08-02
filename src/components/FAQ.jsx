@@ -40,7 +40,7 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section id="faq" className="py-20 bg-gradient-to-br from-background to-muted/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Schema markup for SEO */}
         <script 
@@ -62,13 +62,13 @@ const FAQ = () => {
         />
         
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Frequently Asked{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="gradient-text">
               Questions
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Got questions about Amazon returns management? Our FAQ covers everything from how 
             RTV Solutions handles returns to the specific benefits of our tailored solutions.
           </p>
@@ -79,22 +79,20 @@ const FAQ = () => {
             {faqs.map((faq, index) => (
               <div 
                 key={index}
-                className="bg-white/70 backdrop-blur-sm rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
-                style={{ 
-                  animation: `fadeInUp 0.6s ease-out ${index * 0.1}s both`
-                }}
+                className="glass-effect rounded-lg border border-border hover:border-primary/50 transition-all duration-300 animate-fadeInUp"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <button
                   onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:text-blue-600 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 rounded-lg"
+                  className="w-full px-6 py-4 text-left flex items-center justify-between hover:text-primary transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-opacity-50 rounded-lg"
                   aria-expanded={openItem === index}
                   aria-controls={`faq-answer-${index}`}
                 >
-                  <span className="font-semibold text-gray-900 pr-8">
+                  <span className="font-semibold text-card-foreground pr-8">
                     {faq.question}
                   </span>
                   <ChevronDown 
-                    className={`w-5 h-5 text-gray-500 transition-transform duration-300 flex-shrink-0 ${
+                    className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
                       openItem === index ? 'transform rotate-180' : ''
                     }`}
                   />
@@ -106,7 +104,7 @@ const FAQ = () => {
                     openItem === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}
                 >
-                  <div className="px-6 pb-4 text-gray-700 leading-relaxed">
+                  <div className="px-6 pb-4 text-muted-foreground leading-relaxed">
                     {faq.answer}
                   </div>
                 </div>
@@ -115,19 +113,6 @@ const FAQ = () => {
           </div>
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };

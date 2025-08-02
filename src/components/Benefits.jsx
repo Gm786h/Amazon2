@@ -1,5 +1,5 @@
 import { TrendingUp, Clock, DollarSign, Users, Shield, Zap, Target, Recycle, Settings, CheckCircle } from 'lucide-react';
-import { Card,CardContent } from './ui/card';
+import { Card, CardContent } from './ui/card';
 
 const Benefits = () => {
   const benefits = [
@@ -67,15 +67,16 @@ const Benefits = () => {
       keywords: ['efficient Amazon returns management', 'Amazon FBA returns', 'inventory recovery']
     }
   ];
+  
 
   return (
-    <section id="benefits" className="py-20 bg-gradient-to-b from-slate-50 to-white">
+    <section id="benefits" className="py-20 bg-gradient-to-br from-background via-background to-secondary/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Why Choose <span className="gradient-text text-yellow-600">RTV Solutions</span>
+         <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Why Choose <span className="gradient-text">RTV Solutions</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Transform your returns from a cost center into a competitive advantage.
           </p>
         </div>
@@ -85,24 +86,21 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <Card 
               key={index} 
-              className="bg-white/70 backdrop-blur-sm border border-gray-200/50 hover:border-blue-300/50 hover:shadow-xl transition-all duration-300 group overflow-hidden"
-              style={{ 
-                animationDelay: `${index * 0.1}s`,
-                animation: 'fadeInUp 0.6s ease-out forwards'
-              }}
+              className="glass-effect hover:border-primary/50 hover:shadow-2xl transition-all duration-300 group overflow-hidden animate-fadeInUp"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="p-6 relative">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-100/50 to-purple-100/50 rounded-bl-full"></div>
+              <CardContent className="relative">
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-bl-full"></div>
                 <div className="mb-4 relative z-10">
-                  <benefit.icon className="h-12 w-12 text-blue-600 group-hover:text-purple-600 transition-colors duration-300" />
+                  <benefit.icon className="h-12 w-12 text-primary group-hover:text-secondary transition-colors duration-300" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl font-semibold mb-3 text-card-foreground group-hover:text-primary transition-colors duration-300">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
+                <p className="text-muted-foreground leading-relaxed mb-4">
                   {benefit.description}
                 </p>
-                <div className="text-sm font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <div className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full inline-block">
                   {benefit.stat}
                 </div>
               </CardContent>
@@ -111,32 +109,32 @@ const Benefits = () => {
         </div>
 
         {/* Additional Benefits Section */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 mb-12">
-          <h3 className="text-3xl font-bold text-center mb-8 text-gray-800">
+        <div className="bg-card rounded-2xl p-8 mb-12 border border-border">
+          <h3 className="text-3xl font-bold text-center mb-8 text-card-foreground">
             Additional Key Benefits
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {additionalBenefits.map((benefit, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+                className="bg-muted/50 rounded-xl p-6 hover:bg-muted/70 transition-all duration-300 border border-border/50"
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <benefit.icon className="h-8 w-8 text-blue-600" />
+                    <benefit.icon className="h-8 w-8 text-primary" />
                   </div>
                   <div className="flex-grow">
-                    <h4 className="text-lg font-semibold mb-2 text-gray-800">
+                    <h4 className="text-lg font-semibold mb-2 text-card-foreground">
                       {benefit.title}
                     </h4>
-                    <p className="text-gray-600 mb-3">
+                    <p className="text-muted-foreground mb-3">
                       {benefit.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {benefit.keywords.map((keyword, keyIndex) => (
                         <span 
                           key={keyIndex}
-                          className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full"
+                          className="text-xs bg-primary/20 text-primary px-2 py-1 rounded-full border border-primary/30"
                         >
                           {keyword}
                         </span>
@@ -150,63 +148,50 @@ const Benefits = () => {
         </div>
 
         {/* SEO-Friendly Bullet Points */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 className="text-2xl font-bold mb-6 text-gray-800 text-center">
+        <div className="bg-card rounded-2xl p-8 border border-border">
+          <h3 className="text-2xl font-bold mb-6 text-card-foreground text-center">
             Why Businesses Choose Our Returns Management Solutions
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Cost-effective returns solutions that reduce overhead</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Cost-effective returns solutions that reduce overhead</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Efficient Amazon returns management system</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Efficient Amazon returns management system</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Market disruption prevention strategies</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Market disruption prevention strategies</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Custom return processing workflows</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Custom return processing workflows</span>
               </div>
             </div>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Automated inventory recovery solutions</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Automated inventory recovery solutions</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Tailored plans for sell, buy, or recycle returns</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Tailored plans for sell, buy, or recycle returns</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Professional returns liquidation services</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Professional returns liquidation services</span>
               </div>
               <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-green-600 flex-shrink-0" />
-                <span className="text-gray-700">Scalable return management platform</span>
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="text-muted-foreground">Scalable return management platform</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </section>
   );
 };

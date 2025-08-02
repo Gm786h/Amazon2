@@ -34,7 +34,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gradient-to-t from-gray-100 to-white border-t border-gray-200">
+    <footer className=" bg-black border-gray-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="py-16">
@@ -42,9 +42,9 @@ const Footer = () => {
             {/* Company Info */}
             <div className="lg:col-span-2">
               <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-                RTV Solutions
+                  <strong  className='text-yellow-600'> RTV Solutions</strong> 
               </div>
-              <p className="text-gray-600 mb-6 max-w-md">
+              <p className="text-2xl text-gray-400 mb-6 max-w-md">
                 Revolutionizing Amazon returns management with AI-powered automation. 
                 Transform your operations, reduce costs, and delight customers.
               </p>
@@ -54,9 +54,10 @@ const Footer = () => {
                     key={index}
                     href={social.href}
                     aria-label={social.label}
-                    className="p-2 bg-gray-100 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-300"
+                    className="p-2 bg-gray-900 hover:bg-yellow-900 rounded-lg hover:bg-blue-100 hover:text-blue-600 transition-all duration-300"
                   >
-                    <social.icon className="h-5 w-5" />
+                  <social.icon className="h-5 w-5 text-white hover:text-yellow-600" />
+
                   </a>
                 ))}
               </div>
@@ -65,7 +66,7 @@ const Footer = () => {
             {/* Footer Links */}
             {Object.entries(footerLinks).map(([category, links]) => (
               <div key={category}>
-                <h3 className="font-semibold mb-4 text-gray-900">
+                <h3 className="font-semibold mb-4 text-white">
                   {category}
                 </h3>
                 <ul className="space-y-3">
@@ -106,7 +107,7 @@ const Footer = () => {
               </a>
               <button
                 onClick={scrollToTop}
-                className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition-colors duration-300"
+                className="inline-flex items-center px-3 py-1.5 text-sm font-medium gradient-text border border-blue-600 rounded-md hover:bg-blue-50 transition-colors duration-300"
               >
                 <ArrowUp className="h-4 w-4 mr-2" />
                 Back to Top

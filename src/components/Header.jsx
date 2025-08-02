@@ -1,12 +1,12 @@
 const Header = () => {
   return (
-    <header className="fixed top-0 w-full z-50 glass-effect bg-black">
+    <header className="fixed top-0 w-full z-50 glass-effect ">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center py-6">
           
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-2xl font-bold text-yellow-600">
+            <div className="text-3xl font-bold gradient-text">
               RTV Solutions
             </div>
           </div>
